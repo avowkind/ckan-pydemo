@@ -45,9 +45,24 @@ All the api calls available are documented at https://docs.ckan.org/en/ckan-2.7.
     ckanapi action organization_list -r http://localhost:5000
     ckanapi action organization_list all_fields="True" -r http://localhost:5000
     ckanapi action organization_list all_fields="True" include_users="True" -r http://localhost:5000
-    ckanapi action package_show id="lure-dispenser-comparison-trial" -r http://localhost:5000
+    ckanapi action package_show id="lure-dispenser-comparison-trial" -r http://localhost:5000 -a "03511628-ff4e-47a6-abc0-afa971004c83"
     ckanapi action search-index rebuild -r http://localhost:5000
     ckanapi action package_search q=lure -r http://localhost:5000 | ckanapi delete datasets -r http://localhhost:5000 -a "03511628-ff4e-47a6-abc0-afa971004c83"
+
+
+# Loading datasets from command line
+
+    ckanapi load datasets -I dumpgoat.jsonl -r http://localhost:5000 -a "03511628-ff4e-47a6-abc0-afa971004c83"
+
+    ckanapi resource_create package_id=my-dataset-with-files \
+          upload@/path/to/file/to/upload.csv \
+          url=dummy-value  # ignored but required by CKAN<2.6
+
+    ckanapi action resource_create package_id=1b7c4a6c-3336-4c08-8bcb-0b5c76e84dcd \ 
+    name="Test upload example.csv" \ 
+    upload=@./example.csv \ 
+    -a "03511628-ff4e-47a6-abc0-afa971004c83" \ 
+    -r http://localhost:5000
 
 ## Using jq to filter 
 JQ is a useful command line filter that reads and writes json. 

@@ -1,0 +1,1 @@
+ckanapi action resource_create package_id=1b7c4a6c-3336-4c08-8bcb-0b5c76e84dcd  name="Test upload example.csv" upload=@example.csv  -a "03511628-ff4e-47a6-abc0-afa971004c83"  -r http://localhost:5000

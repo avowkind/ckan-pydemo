@@ -15,4 +15,4 @@ with open('test_dataset.json') as json_file:
     dataset["name"] = dataset["name"] + "_" + cuid
     dataset["title"] = dataset["title"] + " " + cuid
     new_dataset = ckan.action.package_create(**dataset) 
-    pp.pprint(new_dataset)
+    pp.pprint(new_dataset['id'])
