@@ -30,3 +30,4 @@ with open('test_dataset.json') as json_file:
       format='CSV',
       upload=open('./example.csv')
       )
+    pp.pprint(new_resource['id'])
